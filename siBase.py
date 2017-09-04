@@ -6,8 +6,8 @@ import pygame
 
     环境
         1:总体规则
-        1.1:引入时间（统一的时钟频率）和生长周期（暂时没有定义）
-        1.2:位置（统一的位置属性）
+        1.1:统一的时间序列
+        1.2:统一的位置属性
         1.3:统一的能量单位
         1.4:整数值，消除不定因素
 
@@ -95,13 +95,13 @@ class envCell:
             self.size = size
             self.growStep = 1
             self.eng = random.uniform(100, 2000) #最大值2550
-
+            self.eng = 2000
             # -----------------------------------------------------
             # 可以设置环境元素的能量布局，布局不同，细胞会表现出不同行为特征
             if self.id < 2550:
-                self.eng = self.id #random.uniform(100, 2000)
+                self.eng = 2550 - self.id #random.uniform(100, 2000)
             if self.id >= 2550:
-                self.eng = 2550 #random.uniform(100, 2000)
+                self.eng = 2000 #random.uniform(100, 2000)
             # -----------------------------------------------------
 
             self.grid = {}
@@ -119,8 +119,11 @@ class envCell:
                 self.growStep = -5
 
             self.eng = self.eng + self.growStep
-            #self.color = (self.color[0], self.eng, self.color[2])  # 这会一直保留细胞留下的信息量，并逐渐累计
-            self.color = (0, int(self.eng/self.size), 0)    # 重置细胞留下的信息量为0
+            #self.color = (0, int(self.eng/self.size), 0)    # 重置细胞留下的信息量为0
+            b = self.color[2] - 3
+            if b < 0: b = 0
+            if b >250: b = 250
+            self.color = (self.color[0], int(self.eng/self.size), b)  # 这会一直保留细胞留下的信息量，并逐渐累计
             self.shape.fill(self.color)
 
 class vCells:
