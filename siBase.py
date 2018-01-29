@@ -98,10 +98,10 @@ class envCell:
             self.eng = 2000
             # -----------------------------------------------------
             # 可以设置环境元素的能量布局，布局不同，细胞会表现出不同行为特征
-            if self.id < 2550:
-                self.eng = 2550 - self.id #random.uniform(100, 2000)
-            if self.id >= 2550:
-                self.eng = 2000 #random.uniform(100, 2000)
+            #if self.id < 2550:
+            #    self.eng = 2550 - self.id #random.uniform(100, 2000)
+            #if self.id >= 2550:
+            #    self.eng = 2000 #random.uniform(100, 2000)
             # -----------------------------------------------------
 
             self.grid = {}
