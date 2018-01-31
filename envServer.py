@@ -36,10 +36,13 @@ class envCell:
         self.id = id
         self.size = size
         self.growStep = 1
-        self.eng = random.uniform(100, 2000)  # 最大值2550
-        self.eng = 2000
         # -----------------------------------------------------
         # 可以设置环境元素的能量布局，布局不同，细胞会表现出不同行为特征
+        # 1：均匀布局
+        self.eng = 2000
+        # 2：随机布局
+        #self.eng = random.uniform(100, 2000)  # 最大值2550
+        # 3：渐进布局
         # if self.id < 2550:
         #    self.eng = 2550 - self.id #random.uniform(100, 2000)
         # if self.id >= 2550:
