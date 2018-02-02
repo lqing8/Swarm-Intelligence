@@ -15,8 +15,14 @@ Computer simulation of self organized cell behavior and its application
         1：环境将作为server，包括位置（坐标属性）、能量及其生长、细胞元素的作用痕迹，这些都将保留，增加并行运算的缓冲池
     
         2：envCell、Cell作为client，一个细胞对应一个client，这样形成一个分布式的、并行运算环境
+            cell的设计，尽量简单：
+            2.1:envCell初始化以后，只有能量信息需要交换
+                还有TBD就是其记忆功能，要设计吗？（envCell的记忆功能暂时不设计）
+            2.2:如何装载envCell？
+                独立的envCell，自己维持自己的生长，分布式并行运算
+                要和环境进行信息交换，需要通讯
     
-        3：统一的时间标准
+        3：统一的时间频率标准
 
 -------------------   version 1.0   -------------------
 
