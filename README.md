@@ -13,6 +13,8 @@ Computer simulation of self organized cell behavior and its application
         envServer是一个框架，负责装载envCells、Cells、以及它们之间的信息通讯等
 
         1：环境将作为server，包括位置（坐标属性）、能量及其生长、细胞元素的作用痕迹，这些都将保留，增加并行运算的缓冲池
+            server是一个framework，接受所有cell、vcell的嵌入，每一个细胞的嵌入，都要保持其独立并行计算，需要为每一个cell匹配一个长连接
+            长连接的实现，会很耗资源，是否可以通过时间周期来做，约束存在吗？
     
         2：envCell、Cell作为client，一个细胞对应一个client，这样形成一个分布式的、并行运算环境
             cell的设计，尽量简单：
